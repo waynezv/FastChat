@@ -2,8 +2,8 @@
 Global constants.
 """
 
-from enum import IntEnum
 import os
+from enum import IntEnum
 
 REPO_PATH = os.path.dirname(os.path.dirname(__file__))
 
@@ -20,12 +20,15 @@ INPUT_CHAR_LEN_LIMIT = int(os.getenv("FASTCHAT_INPUT_CHAR_LEN_LIMIT", 12000))
 # Maximum conversation turns
 CONVERSATION_TURN_LIMIT = 50
 # Session expiration time
-SESSION_EXPIRATION_TIME = 3600
+SESSION_EXPIRATION_TIME = 7200
 # The output dir of log files
 LOGDIR = os.getenv("LOGDIR", ".")
 # CPU Instruction Set Architecture
 CPU_ISA = os.getenv("CPU_ISA")
 
+TEMPERATURE = float(os.getenv("TEMPERATURE", 0.7))
+TOP_P = float(os.getenv("TOP_P", 1))
+MAX_OUTPUT_TOKENS = int(os.getenv("MAX_OUTPUT_TOKENS", 1024))
 
 ##### For the controller and workers (could be overwritten through ENV variables.)
 CONTROLLER_HEART_BEAT_EXPIRATION = int(
